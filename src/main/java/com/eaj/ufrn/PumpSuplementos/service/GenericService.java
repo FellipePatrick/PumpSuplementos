@@ -5,29 +5,47 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public abstract class GenericService<T, ID, REPO extends JpaRepository<T, ID>> {
+public abstract class GenericService<T, ID, REPO extends JpaRepository<T, ID>> implements IService<T, ID> {
 
     private REPO repository;
 
-    public void delete(Long id) {
+    @Override
+    public void deleteById(ID id) {
+        Optional<T> entity = repository.findById(id);
+
+        if (entity.isPresent()) {
+            this.repository.delete(entity.get());
+        }
+        
+        throw new EntityNotFoundException("Objeto de id " + id + "not found");
     }
 
     public List<T> findAll() {
         return repository.findAll();
     }
 
-    public Optional<T> findById(ID id) {
-        return repository.findById(id);
+    @Override
+    public T findById(ID id) {
+        Optional<T> optional = repository.findById(id);
+
+        if(optional.isPresent()){
+            return optional.get();
+        }
+
+        throw new EntityNotFoundException("Objeto de id" + id + "not found");
     }
 
+    @Override
     public T create(T entity) {
-        return repository.save(entity);
+        return this.repository.save(entity);
     }
 
-    public void update(T entity, ID id) {
-        repository.saveAndFlush(entity);
+    @Override
+    public T update(T entity, ID id) {
+        return this.repository.saveAndFlush(entity);
     }
 }

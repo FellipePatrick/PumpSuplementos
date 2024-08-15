@@ -21,6 +21,4 @@ public class Pedido{
     private Long id;
     private LocalDate data;
     private Long isDeleted;
-
-
 }
