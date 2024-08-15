@@ -42,3 +42,6 @@ Este projeto é uma aplicação de eCommerce para a venda de suplementos, desenv
     git clone https://github.com/FellipePatrick/PumpSuplementos.git
     cd PumpSuplementos
     ```
+
+    ![image](https://github.com/user-attachments/assets/f881f158-5c15-4e1c-ab84-0056b9e8bcbc)
+
