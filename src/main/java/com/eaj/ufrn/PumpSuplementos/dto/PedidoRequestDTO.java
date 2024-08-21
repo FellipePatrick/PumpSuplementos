@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PedidoRequestDTO {
-    private LocalDate data;
     private Usuario cliente;
     private double total;
 }
