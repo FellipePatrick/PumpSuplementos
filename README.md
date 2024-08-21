@@ -65,3 +65,25 @@ bash
 Copiar código
 git branch
 A branch atual será precedida por um asterisco *.
+
+# Angula_docs
+
+<pre>
+  npm install -g @angular/cli - instala o terminal do Angula
+  npx ng --help
+  ng new my-first-project - cria um novo projeto
+  cd my-first-project - vai para a pasta do projeto
+  npx ng serve - liga o servidor
+  npx ng add @angular/material - permite inserir componentes prontos do Angula
+  npx ng g c /produtos/ListaProdutos - cria um componente(componente, html, scss e teste)
+  npx ng g interface produtos/model/produto - cria uma interface para ser usada como base
+  npx ng g s produtos/service/produto - cria o service para consumir a API
+</pre>
+
+# Criando uma API fake
+<pre>
+   npm install -g json-server
+   mkdir backend && cd backend && touch database.json
+   npx json-server --watch backend/database.json
+</pre>
+
