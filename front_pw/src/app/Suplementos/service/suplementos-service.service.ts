@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Suplemento } from '../model/suplemento';
-import { first, Observable, tap } from 'rxjs';
+import { first, Observable, of, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,5 +31,13 @@ export class SuplementosServiceService {
 
   public putSuplemento(suplemento:Suplemento){
    // return this.httpClient.put(`${this.API_URL}/${suplemento.id}`, suplemento);
+  }
+
+  // Tratador de erros genérico
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(`${operation} falhou: ${error.message}`);
+      return of(result as T);
+    };
   }
 }
