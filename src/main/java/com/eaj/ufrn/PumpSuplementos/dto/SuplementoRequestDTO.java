@@ -14,5 +14,4 @@ public class SuplementoRequestDTO {
     private float preco;
     private String descricao;
     private String categoria;
-    private Long isDeleted;
 }

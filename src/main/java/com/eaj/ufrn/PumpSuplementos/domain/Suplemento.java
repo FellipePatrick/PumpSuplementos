@@ -15,10 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "suplemento")
-public class Suplemento{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Suplemento extends AbstractEntity{
     private String nome;
     private int quantidade;
     private String imageUri;
