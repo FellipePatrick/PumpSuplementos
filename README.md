@@ -87,3 +87,5 @@ A branch atual será precedida por um asterisco *.
    npx json-server --watch backend/database.json
 </pre>
 
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
