@@ -1,6 +1,9 @@
 package com.eaj.ufrn.PumpSuplementos.dto;
 
 import java.time.LocalDate;
+
+import com.eaj.ufrn.PumpSuplementos.domain.Usuario;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,5 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PedidoRequestDTO {
     private LocalDate data;
-    private Long isDeleted;
+    private Usuario cliente;
+    private double total;
 }

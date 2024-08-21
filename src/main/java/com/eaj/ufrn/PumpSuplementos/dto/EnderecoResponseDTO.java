@@ -14,6 +14,9 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 public class EnderecoResponseDTO extends RepresentationModel<EnderecoResponseDTO>{
     private String logradouro;
     private String bairro;
+    private String cidade;
+    private String pais;
+    private String estado;
     private String numero;
     private String complemento;
 

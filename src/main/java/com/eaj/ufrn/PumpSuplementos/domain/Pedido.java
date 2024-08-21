@@ -4,9 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -21,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "pedido")
 public class Pedido extends AbstractEntity{
     private LocalDate data;
-    private Long isDeleted;
+    private double total;
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Usuario cliente;

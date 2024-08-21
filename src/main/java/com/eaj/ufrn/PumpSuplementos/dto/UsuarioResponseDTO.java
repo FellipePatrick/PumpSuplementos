@@ -15,7 +15,9 @@ import lombok.NoArgsConstructor;
 public class UsuarioResponseDTO extends RepresentationModel<UsuarioResponseDTO>{
     private String nome;
     private String email;
+    private Boolean isAdmin;
     private String password;
+    private EnderecoRequestDTO endereco;
 
     public void addLinks(Usuario usuario){
         this.add(linkTo(UsuarioController.class).slash(usuario.getEmail()).withSelfRel());

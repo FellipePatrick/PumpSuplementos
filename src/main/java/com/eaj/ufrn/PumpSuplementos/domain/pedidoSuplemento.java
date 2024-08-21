@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "pedidoSuplemento")
-public class PedidoSuplemento {
+public class pedidoSuplemento {
     
     @ManyToOne
     @JoinColumn(name = "usuario_id")

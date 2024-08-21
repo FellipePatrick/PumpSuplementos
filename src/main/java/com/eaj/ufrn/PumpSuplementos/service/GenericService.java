@@ -3,15 +3,19 @@ package com.eaj.ufrn.PumpSuplementos.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import jakarta.persistence.EntityNotFoundException;
-import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 public abstract class GenericService<T, ID, REPO extends JpaRepository<T, ID>> implements IService<T, ID> {
 
     private REPO repository;
+
+    public GenericService(REPO repository) {
+        this.repository = repository;
+    }
 
     @Override
     public void deleteById(ID id) {
@@ -24,13 +28,13 @@ public abstract class GenericService<T, ID, REPO extends JpaRepository<T, ID>> i
         throw new EntityNotFoundException("Objeto de id " + id + "not found");
     }
 
-    public List<T> findAll() {
-        return repository.findAll();
+    public Page<T> listAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override
     public T findById(ID id) {
-        Optional<T> optional = repository.findById(id);
+        Optional<T> optional = this.repository.findById(id);
 
         if(optional.isPresent()){
             return optional.get();

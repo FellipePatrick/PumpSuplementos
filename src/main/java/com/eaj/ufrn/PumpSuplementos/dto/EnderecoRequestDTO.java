@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 public class EnderecoRequestDTO{
     private String logradouro;
     private String bairro;
+    private String cidade;
+    private String pais;
+    private String estado;
     private String numero;
     private String complemento;
 }

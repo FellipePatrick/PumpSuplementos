@@ -10,5 +10,8 @@ import lombok.NoArgsConstructor;
 public class UsuarioRequestDTO {
     private String nome;
     private String email;
+    private Boolean isAdmin;
     private String password;
+    private  EnderecoRequestDTO endereco;
+    
 }
