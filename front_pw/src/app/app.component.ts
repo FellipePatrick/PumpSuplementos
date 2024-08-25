@@ -11,6 +11,7 @@ import { RouterLinkActive } from '@angular/router';
 import { NgModel } from '@angular/forms';
 import { FooterComponent } from './Suplementos/footer/footer.component';
 import { HeaderComponent } from './Suplementos/header/header.component';
+import { LoginComponent } from './Suplementos/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ import { HeaderComponent } from './Suplementos/header/header.component';
     RouterLinkActive,
     FooterComponent,
     HeaderComponent,
+    LoginComponent,
   ],
 
   templateUrl: './app.component.html',

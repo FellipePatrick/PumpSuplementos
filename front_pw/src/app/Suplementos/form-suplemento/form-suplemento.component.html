@@ -57,14 +57,24 @@
               />
             </div>
             <br />
-            <button type="submit" class="btn btn-primary" (click)="onSubmit()">
-              Enviar
-            </button>
-            <br />
-            <br />
-            <button type="submit" class="btn btn-danger" (click)="onCancel()">
-              Cancelar
-            </button>
+            <div class="row">
+              <div class="col-6">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  (click)="onSubmit()"
+                >
+                  Enviar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-danger"
+                  (click)="onCancel()"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
