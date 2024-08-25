@@ -48,11 +48,11 @@ export class ListarSuplementosComponent {
     produtosService.list().subscribe((p) => (this.produtos_array = p));
     this.suplemento$ = produtosService
       .list()
-      .pipe(delay(3000))
+      .pipe(delay(1000))
       .pipe(
         catchError((error) => {
           this.snackBar.open('Erro ao carregar a lista de produtos', 'Fechar', {
-            duration: 2000,
+            duration: 1000,
           });
           throw error;
         })

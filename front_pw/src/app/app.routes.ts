@@ -3,22 +3,16 @@ import { ListarSuplementosComponent } from './Suplementos/listar-suplementos/lis
 import { FormSuplementoComponent } from './Suplementos/form-suplemento/form-suplemento.component';
 import { EditSuplementosComponent } from './Suplementos/edit-suplementos/edit-suplementos.component';
 import { LoginComponent } from './Usuarios/login/login.component';
+import { PrincipalCompentComponent } from './shared/components/principal-compent/principal-compent.component';
 
 export const routes: Routes = [
-  {
-    path: 'suplementos/listar',
-    component: ListarSuplementosComponent,
-  },
-  {
-    path: 'suplementos/criar',
-    component: FormSuplementoComponent,
-  },
-  {
-    path: 'suplementos/editar/:id',
-    component: EditSuplementosComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
+
+  {path: "", redirectTo: "login", pathMatch: 'full'},
+  {path: "login", component: LoginComponent},
+
+  {path: "suplementos", component: PrincipalCompentComponent, children: [
+    {path: 'listar',component: ListarSuplementosComponent},
+    {path: 'criar',component: FormSuplementoComponent},
+    {path: 'editar/:id',component: EditSuplementosComponent},
+  ]}
 ];

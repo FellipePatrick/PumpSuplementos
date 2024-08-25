@@ -20,12 +20,17 @@ export class LoginComponent {
     private formBuilder:FormBuilder,
     private snackBar:MatSnackBar,
     private router: Router,
-    private route: ActivatedRoute // Add this line
+    private route: ActivatedRoute, // Add this line
   ) {
     this.form = this.formBuilder.group({
       email: [''],
       password: [''],
   })}
+
+  ngOnInit(): void {
+    this.usuarioService.logout();
+  }
+
 
   onSubmit(){
     this.usuarioService.login(this.form.value.email, this.form.value.password)
@@ -40,7 +45,7 @@ export class LoginComponent {
     alert('Salvo com sucesso!');
     this.snackBar.open("Salvo!", "", {duration:1000 })
     this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/suplementos']);
     });
   }
 
