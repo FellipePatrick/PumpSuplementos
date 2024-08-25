@@ -3,40 +3,33 @@
     <div class="col-6 mx-auto">
       <div class="card">
         <div class="card-body">
-          <form>
+          <form [formGroup]="form">
             <div class="form-group">
               <label for="exampleInputEmail1">Endereço de email</label>
               <input
                 type="email"
                 class="form-control"
-                id="exampleInputEmail1"
+                id="email"
                 aria-describedby="emailHelp"
                 placeholder="Seu email"
+                name="email"
+                formControlName="email"
               />
-              <small id="emailHelp" class="form-text text-muted"
-                >Nunca vamos compartilhar seu email, com ninguém.</small
-              >
+
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Senha</label>
               <input
                 type="password"
                 class="form-control"
-                id="exampleInputPassword1"
+                id="senha"
                 placeholder="Senha"
+                formControlName="password"
+                name="password"
               />
             </div>
-            <div class="form-group form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              />
-              <label class="form-check-label" for="exampleCheck1"
-                >Clique em mim</label
-              >
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Enviar</button>
           </form>
         </div>
       </div>

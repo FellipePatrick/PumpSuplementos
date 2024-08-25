@@ -19,15 +19,6 @@
       "categoria": "Proteínas"
     },
     {
-      "id": "7",
-      "nome": "Glutamina",
-      "quantidade": 50,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/glutamine-2695711_960_720.jpg",
-      "preco": 99.99,
-      "descricao": "Glutamina em pó para recuperação muscular, fortalecimento do sistema imunológico e redução do catabolismo.",
-      "categoria": "Aminoácidos"
-    },
-    {
       "id": "8",
       "nome": "Termogênico",
       "quantidade": 30,
@@ -80,6 +71,15 @@
       "preco": "a",
       "descricao": "a",
       "categoria": "a"
+    },
+    {
+      "id": "",
+      "nome": "João Vitor Gomes Vieira",
+      "quantidade": "aaa",
+      "imageUri": "",
+      "preco": "aa",
+      "descricao": "aa",
+      "categoria": "aa"
     }
   ]
 }

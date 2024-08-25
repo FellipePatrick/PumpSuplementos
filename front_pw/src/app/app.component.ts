@@ -11,7 +11,7 @@ import { RouterLinkActive } from '@angular/router';
 import { NgModel } from '@angular/forms';
 import { FooterComponent } from './Suplementos/footer/footer.component';
 import { HeaderComponent } from './Suplementos/header/header.component';
-import { LoginComponent } from './Suplementos/login/login.component';
+import { LoginComponent } from './Usuarios/login/login.component';
 
 @Component({
   selector: 'app-root',
