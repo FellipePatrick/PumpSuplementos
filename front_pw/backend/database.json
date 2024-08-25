@@ -14,7 +14,7 @@
       "nome": "Whey Protein",
       "quantidade": 20,
       "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/protein-2695710_960_720.jpg",
-      "preco": "149.90",
+      "preco": 149.99,
       "descricao": "Whey Protein concentrado, fonte de proteína de alta qualidade para recuperação muscular e ganho de massa magra.",
       "categoria": "Proteínas"
     },
@@ -35,6 +35,15 @@
       "preco": 109.99,
       "descricao": "Suplemento termogênico para acelerar o metabolismo e auxiliar na queima de gordura.",
       "categoria": "Emagrecimento"
+    },
+    {
+      "id": "9",
+      "nome": "Colágeno",
+      "quantidade": 60,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/collagen-2695713_960_720.jpg",
+      "preco": 69.99,
+      "descricao": "Colágeno hidrolisado para fortalecimento de unhas, cabelos, pele e articulações.",
+      "categoria": "Colágeno"
     },
     {
       "id": "10",
@@ -65,30 +74,12 @@
     },
     {
       "id": "",
-<<<<<<< HEAD
       "nome": "a",
       "quantidade": "a",
       "imageUri": "a",
       "preco": "a",
       "descricao": "a",
       "categoria": "a"
-=======
-      "nome": "",
-      "quantidade": "",
-      "imageUri": "",
-      "preco": "",
-      "descricao": "",
-      "categoria": ""
-    },
-    {
-      "id": "",
-      "nome": "Oleo de Peroba",
-      "quantidade": "12",
-      "imageUri": "",
-      "preco": "12",
-      "descricao": "Perobna",
-      "categoria": "Peroba"
->>>>>>> dd00af391781bc2a6ea384ea5fd4e425727c2e61
     }
   ]
 }
