@@ -2,30 +2,12 @@
   "Suplementos": [
     {
       "id": "3",
-      "nome": "ALGAROBA",
-      "quantidade": 30,
+      "nome": "ALGAROBA 2",
+      "quantidade": "35",
       "imageUri": "https://th.bing.com/th/id/OIP.DZseLqdg2--1l-vT-4UybwHaFo?rs=1&pid=ImgDetMain",
       "preco": 129.99,
       "descricao": "Suplemento BCAA na proporção 2:1:1, ajuda na recuperação e redução da fadiga muscular.",
       "categoria": "Aminoácidos"
-    },
-    {
-      "id": "6",
-      "nome": "Whey Protein",
-      "quantidade": 20,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/protein-2695710_960_720.jpg",
-      "preco": 149.99,
-      "descricao": "Whey Protein concentrado, fonte de proteína de alta qualidade para recuperação muscular e ganho de massa magra.",
-      "categoria": "Proteínas"
-    },
-    {
-      "id": "8",
-      "nome": "Termogênico",
-      "quantidade": 30,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/thermogenic-2695712_960_720.jpg",
-      "preco": 109.99,
-      "descricao": "Suplemento termogênico para acelerar o metabolismo e auxiliar na queima de gordura.",
-      "categoria": "Emagrecimento"
     },
     {
       "id": "9",
@@ -80,6 +62,24 @@
       "preco": "aa",
       "descricao": "aa",
       "categoria": "aa"
+    },
+    {
+      "id": "",
+      "nome": "a",
+      "quantidade": "a",
+      "imageUri": "",
+      "preco": "a",
+      "descricao": "a",
+      "categoria": "a"
+    },
+    {
+      "id": "",
+      "nome": "a",
+      "quantidade": "a",
+      "imageUri": "",
+      "preco": "a",
+      "descricao": "a",
+      "categoria": "a"
     }
   ]
 }

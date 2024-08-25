@@ -48,7 +48,6 @@ export class ListarSuplementosComponent {
     produtosService.list().subscribe((p) => (this.produtos_array = p));
     this.suplemento$ = produtosService
       .list()
-      .pipe(delay(1000))
       .pipe(
         catchError((error) => {
           this.snackBar.open('Erro ao carregar a lista de produtos', 'Fechar', {
@@ -78,13 +77,13 @@ export class ListarSuplementosComponent {
     alert('Deletado com sucesso!');
     this.snackBar.open(string, '', { duration: 1000 });
     this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/suplementos']);
     });
   }
 
   onErro(errorMensage: string, action: string) {
     this.snackBar.open(errorMensage, action, {
-      duration: 2000,
+      duration: 1000,
     });
   }
 }
