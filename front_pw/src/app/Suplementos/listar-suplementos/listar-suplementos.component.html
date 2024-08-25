@@ -1,51 +1,80 @@
 @if(suplemento$ | async; as produtos_array ){
-  <table mat-table [dataSource]="produtos_array" class="mat-elevation-z8" style="width:
-  100%">
-    <!-- Nome Column -->
-    <ng-container matColumnDef="nome">
-      <th mat-header-cell *matHeaderCellDef>Nome</th>
-      <td mat-cell *matCellDef="let p">{{ p.nome }}</td>
-    </ng-container>
-    <!-- Descricao Column -->
-    <ng-container matColumnDef="descricao">
-      <th mat-header-cell *matHeaderCellDef>Descricao</th>
-      <td mat-cell *matCellDef="let p">{{ p.descricao }}</td>
-    </ng-container>
-    <!-- Categoria Column -->
-    <ng-container matColumnDef="categoria">
-      <th mat-header-cell *matHeaderCellDef>Categoria</th>
-      <td mat-cell *matCellDef="let p">{{ p.categoria }}</td>
-    </ng-container>
-    <!-- Preco Column -->
-    <ng-container matColumnDef="preco">
-      <th mat-header-cell *matHeaderCellDef>Preco</th>
-      <td mat-cell *matCellDef="let p">{{ p.preco }}</td>
-    </ng-container>
-    <!-- Quantidade Column -->
-    <ng-container matColumnDef="quantidade">
-      <th mat-header-cell *matHeaderCellDef>Quantidade</th>
-      <td mat-cell *matCellDef="let p">{{ p.quantidade }}</td>
-    </ng-container>
-    <!-- Image Column -->
-    <ng-container matColumnDef="imageUri">
-      <th mat-header-cell *matHeaderCellDef>Imagem</th>
-      <td mat-cell *matCellDef="let p"><img [src]="p.imageUri" style="width: 100px; height: 100px;"></td>
-    </ng-container>
-    <ng-container matColumnDef="acao">
-      <th mat-header-cell *matHeaderCellDef>Ação</th>
-      <td mat-cell *matCellDef="let p">
-      <button  (click)="editar(p.id)" mat-icon-button color="primary" aria-label="Editar">
+<table
+  mat-table
+  [dataSource]="produtos_array"
+  class="mat-elevation-z8"
+  style="width: 100%"
+>
+  <!-- Nome Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef>Nome</th>
+    <td mat-cell *matCellDef="let p">{{ p.nome }}</td>
+  </ng-container>
+  <!-- Descricao Column -->
+  <ng-container matColumnDef="descricao">
+    <th mat-header-cell *matHeaderCellDef>Descricao</th>
+    <td mat-cell *matCellDef="let p">{{ p.descricao }}</td>
+  </ng-container>
+  <!-- Categoria Column -->
+  <ng-container matColumnDef="categoria">
+    <th mat-header-cell *matHeaderCellDef>Categoria</th>
+    <td mat-cell *matCellDef="let p">{{ p.categoria }}</td>
+  </ng-container>
+  <!-- Preco Column -->
+  <ng-container matColumnDef="preco">
+    <th mat-header-cell *matHeaderCellDef>Preco</th>
+    <td mat-cell *matCellDef="let p">{{ p.preco }}</td>
+  </ng-container>
+  <!-- Quantidade Column -->
+  <ng-container matColumnDef="quantidade">
+    <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+    <td mat-cell *matCellDef="let p">{{ p.quantidade }}</td>
+  </ng-container>
+  <!-- Image Column -->
+  <ng-container matColumnDef="imageUri">
+    <th mat-header-cell *matHeaderCellDef>Imagem</th>
+    <td mat-cell *matCellDef="let p">
+      <img [src]="p.imageUri" style="width: 100px; height: 100px" />
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="acao">
+    <th mat-header-cell *matHeaderCellDef>Ação</th>
+    <td mat-cell *matCellDef="let p">
+      <button
+        (click)="editar(p.id)"
+        mat-icon-button
+        color="primary"
+        aria-label="Editar"
+      >
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" aria-label="Remover" (click)="deletar(p.id)">
+      <button
+        mat-icon-button
+        color="warn"
+        aria-label="Remover"
+        (click)="deletar(p.id)"
+      >
         <mat-icon>delete</mat-icon>
       </button>
-      </td>
-      </ng-container>
+    </td>
+  </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<nav aria-label="Navegação de página exemplo">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Anterior</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Próximo</a>
+    </li>
+  </ul>
+</nav>
 }@else{
-  <p>Carregando...</p>
+<p>Carregando...</p>
 }
