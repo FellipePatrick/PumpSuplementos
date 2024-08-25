@@ -1,22 +1,85 @@
 {
   "Suplementos": [
     {
-      "id": "",
-      "nome": "a",
-      "quantidade": "a",
-      "imageUri": "a",
-      "preco": "a",
-      "descricao": "a",
-      "categoria": "a"
+      "id": "3",
+      "nome": "BCAA 2:1:1",
+      "quantidade": 30,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/bcaa-2695707_960_720.jpg",
+      "preco": 129.99,
+      "descricao": "Suplemento BCAA na proporção 2:1:1, ajuda na recuperação e redução da fadiga muscular.",
+      "categoria": "Aminoácidos"
     },
     {
-      "id": "",
-      "nome": "a",
-      "quantidade": "a",
-      "imageUri": "a",
-      "preco": "a",
-      "descricao": "a",
-      "categoria": "a"
+      "id": "4",
+      "nome": "Multivitamínico",
+      "quantidade": 60,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/multivitamin-2695708_960_720.jpg",
+      "preco": 74.99,
+      "descricao": "Multivitamínico completo para garantir a ingestão diária de vitaminas e minerais essenciais.",
+      "categoria": "Vitaminas e Minerais"
+    },
+    {
+      "id": "5",
+      "nome": "Óleo de Peixe",
+      "quantidade": 40,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/fish-oil-2695709_960_720.jpg",
+      "preco": 59.99,
+      "descricao": "Óleo de peixe rico em ácidos graxos ômega-3, benéfico para a saúde cardiovascular e função cerebral.",
+      "categoria": "Ômega-3"
+    },
+    {
+      "id": "6",
+      "nome": "Whey Protein",
+      "quantidade": 20,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/protein-2695710_960_720.jpg",
+      "preco": 149.99,
+      "descricao": "Whey Protein concentrado, fonte de proteína de alta qualidade para recuperação muscular e ganho de massa magra.",
+      "categoria": "Proteínas"
+    },
+    {
+      "id": "7",
+      "nome": "Glutamina",
+      "quantidade": 50,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/glutamine-2695711_960_720.jpg",
+      "preco": 99.99,
+      "descricao": "Glutamina em pó para recuperação muscular, fortalecimento do sistema imunológico e redução do catabolismo.",
+      "categoria": "Aminoácidos"
+    },
+    {
+      "id": "8",
+      "nome": "Termogênico",
+      "quantidade": 30,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/thermogenic-2695712_960_720.jpg",
+      "preco": 109.99,
+      "descricao": "Suplemento termogênico para acelerar o metabolismo e auxiliar na queima de gordura.",
+      "categoria": "Emagrecimento"
+    },
+    {
+      "id": "9",
+      "nome": "Colágeno",
+      "quantidade": 60,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/collagen-2695713_960_720.jpg",
+      "preco": 69.99,
+      "descricao": "Colágeno hidrolisado para fortalecimento de unhas, cabelos, pele e articulações.",
+      "categoria": "Colágeno"
+    },
+    {
+      "id": "10",
+      "nome": "Cafeína",
+      "quantidade": 40,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/caffeine-2695714_960_720.jpg",
+      "preco": 49.99,
+      "descricao": "Cafeína pura em cápsulas para aumento de energia, foco e desempenho nos treinos.",
+      "categoria": "Energéticos"
+    },
+    {
+      "id": "11",
+      "nome": "ZMA",
+      "quantidade": 30,
+      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/zma-2695715_960_720.jpg",
+      "preco": 79.99,
+      "descricao": "ZMA (Zinco, Magnésio e Vitamina B6) para aumento da produção de testosterona e recuperação muscular.",
+      "categoria": "Recuperação"
     },
     {
       "id": "",

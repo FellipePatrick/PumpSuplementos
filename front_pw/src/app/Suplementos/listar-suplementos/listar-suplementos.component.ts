@@ -8,7 +8,7 @@ import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { Location } from '@angular/common'; // Importe Location
 
 @Component({
   selector: 'app-listar-suplementos',
@@ -26,7 +26,8 @@ export class ListarSuplementosComponent {
     private produtosService:SuplementosServiceService,
     public snackBar: MatSnackBar,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private location: Location
   ) {
     produtosService.list().subscribe(p => this.produtos_array = p)
     this.suplemento$ = produtosService.list()
@@ -42,27 +43,26 @@ export class ListarSuplementosComponent {
     );
   }
 
-  editar(){
+  editar(id: number){
     alert('Editar');
-    console.log('Método editar foi chamado');
+
   }
 
   deletar(id: number){
     this.produtosService.deleteSuplemento(id)
     .subscribe({
-      //next: (v) => this.onSucess('Produto deletado com sucesso!'),
+      next: (v) => this.onSucess('Produto deletado com sucesso!'),
       error: (e) => this.onErro(e, 'Fechar'),
       complete: () => console.info('complete')
     })
-    //refresh na pagina
-    this.router.navigate(['suplementos'], {relativeTo: this.activatedRoute})
-
   }
 
-  onAdd(){
-    alert('Adicionar');
-    console.log('Método onAdd foi chamado');
-    this.router.navigate(['suplementos/create'], {relativeTo: this.activatedRoute})
+  onSucess(string : string){
+    alert('Deletado com sucesso!');
+    this.snackBar.open(string, "", {duration:1000 })
+    this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
   }
 
 

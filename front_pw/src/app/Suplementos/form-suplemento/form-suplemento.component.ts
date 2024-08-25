@@ -10,10 +10,12 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { Location } from '@angular/common'; // Importe Location
 import { ListarSuplementosComponent } from '../listar-suplementos/listar-suplementos.component';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-form-suplemento',
   standalone: true,
-  imports: [MatInputModule, ReactiveFormsModule, MatFormFieldModule, ListarSuplementosComponent],
+  imports: [MatInputModule, ReactiveFormsModule, MatFormFieldModule, ListarSuplementosComponent, ],
   templateUrl: './form-suplemento.component.html',
   styleUrl: './form-suplemento.component.scss'
 })
@@ -25,7 +27,8 @@ export class FormSuplementoComponent {
     private formBuilder:FormBuilder,
     private service:SuplementosServiceService,
     private snackBar:MatSnackBar,
-    private location:Location
+    private location:Location,
+    private router: Router
   ){
    // this.suplemento$ = service.list();
     this.form = this.formBuilder.group({
@@ -45,27 +48,18 @@ export class FormSuplementoComponent {
     next: (v) => this.onSucess(),
     error: (e) => this.snackBar.open(e, "", {duration:1000 }),
     complete: () => console.info('complete')
-
-  })
+    })
   }
   onSucess(){
+    alert('Salvo com sucesso!');
     this.snackBar.open("Salvo!", "", {duration:1000 })
-    this.location.back();
+    this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
   }
   onCancel(){
     this.location.back();
   }
 
-  onDelete(id:number){
-    this.service.deleteSuplemento(id)
-    .subscribe({
-    next: (v) => console.log(v),
-    error: (e) => console.log(e),
-     //complete: () => this.suplementos$ = this.service.list()
-    });
-    this.location.back();
-  }
-  onEdit(id:number){
-    //this.router.navigate([id.toString()+'/edit'], {relativeTo: this.activatedRoute})
-  }
+
 }
