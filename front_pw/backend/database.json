@@ -2,21 +2,12 @@
   "Suplementos": [
     {
       "id": "3",
-      "nome": "BCAA 2:1:1",
+      "nome": "ALGAROBA",
       "quantidade": 30,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/bcaa-2695707_960_720.jpg",
+      "imageUri": "https://th.bing.com/th/id/OIP.DZseLqdg2--1l-vT-4UybwHaFo?rs=1&pid=ImgDetMain",
       "preco": 129.99,
       "descricao": "Suplemento BCAA na proporção 2:1:1, ajuda na recuperação e redução da fadiga muscular.",
       "categoria": "Aminoácidos"
-    },
-    {
-      "id": "4",
-      "nome": "Multivitamínico",
-      "quantidade": 60,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/multivitamin-2695708_960_720.jpg",
-      "preco": 74.99,
-      "descricao": "Multivitamínico completo para garantir a ingestão diária de vitaminas e minerais essenciais.",
-      "categoria": "Vitaminas e Minerais"
     },
     {
       "id": "5",

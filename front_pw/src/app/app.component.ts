@@ -9,12 +9,25 @@ import { FormSuplementoComponent } from './Suplementos/form-suplemento/form-supl
 
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
+import { NgModel } from '@angular/forms';
+
+
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatButtonModule, MatCardModule, MatToolbarModule, ListarSuplementosComponent, ListarSuplementosComponent, FormSuplementoComponent, RouterLink, RouterLinkActive],
+  imports: [
+    RouterOutlet,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    ListarSuplementosComponent,
+    FormSuplementoComponent,
+    RouterLink,
+    RouterLinkActive
+  ],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

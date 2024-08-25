@@ -9,13 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { Location } from '@angular/common'; // Importe Location
-import { ListarSuplementosComponent } from '../listar-suplementos/listar-suplementos.component';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-suplemento',
   standalone: true,
-  imports: [MatInputModule, ReactiveFormsModule, MatFormFieldModule, ListarSuplementosComponent, ],
+  imports: [MatInputModule, ReactiveFormsModule, MatFormFieldModule, ],
   templateUrl: './form-suplemento.component.html',
   styleUrl: './form-suplemento.component.scss'
 })

@@ -45,7 +45,7 @@ export class ListarSuplementosComponent {
 
   editar(id: number){
     alert('Editar');
-
+    this.router.navigate(['Suplementos/editar-suplementos/', id], { relativeTo: this.router.routerState.root });
   }
 
   deletar(id: number){
