@@ -5,12 +5,15 @@ import { EditSuplementosComponent } from './Suplementos/edit-suplementos/edit-su
 
 export const routes: Routes = [
   {
-    path: 'Suplementos/listar-suplementos',
-    component: ListarSuplementosComponent
+    path: 'suplementos/listar',
+    component: ListarSuplementosComponent,
   },
   {
-    path: 'Suplementos/criar-suplementos',
-    component: FormSuplementoComponent
+    path: 'suplementos/criar',
+    component: FormSuplementoComponent,
   },
-  {path: 'Suplementos/editar-suplementos/:id', component: EditSuplementosComponent}
+  {
+    path: 'suplementos/editar/:id',
+    component: EditSuplementosComponent,
+  },
 ];
