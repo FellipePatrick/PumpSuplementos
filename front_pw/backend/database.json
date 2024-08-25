@@ -80,6 +80,15 @@
       "preco": "a",
       "descricao": "a",
       "categoria": "a"
+    },
+    {
+      "id": "",
+      "nome": "a",
+      "quantidade": "a",
+      "imageUri": "a",
+      "preco": "a",
+      "descricao": "a",
+      "categoria": "a"
     }
   ]
 }

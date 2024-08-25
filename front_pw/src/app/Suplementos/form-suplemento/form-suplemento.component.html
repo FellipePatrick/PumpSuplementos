@@ -1,30 +1,83 @@
-<div class="ng-container "></div>
-<form [formGroup]="form">
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Nome do Suplemento</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nome"
+                placeholder="Nome do Suplemento"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Descrição</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="descricao"
+                placeholder="Descrição"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Categoria</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="categoria"
+                placeholder="Categoria"
+              />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Preço: </label>
+              <input matInput formControlName="preco" placeholder="Preço" />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Quantidade : </label>
+              <input
+                matInput
+                placeholder="Quantidade"
+                formControlName="quantidade"
+              />
+            </div>
 
-    <input  placeholder="Nome" formControlName="nome" />
-
-
-
-    <input  placeholder="Descrição" formControlName="descricao" />
-
-  <br />
-
-    <input  placeholder="Categoria" formControlName="categoria" />
-
-
-
-    <input  placeholder="Preço" formControlName="preco" />
-
-
-    <input  placeholder="Quantidade" formControlName="quantidade" />
-
-
-    <input  placeholder="Imagem" formControlName="imageUri" />
-
-
-  <button mat-flat-button (click)="onSubmit()">
-    Cadastrar
-  </button>
-  <button mat-flat-button (click)="onCancel()">Cancelar</button>
-</form>
-
+            <br />
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Enviar Imagem</label>
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                accept="image/*"
+              />
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-6">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  (click)="onSubmit()"
+                >
+                  Enviar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-danger"
+                  (click)="onCancel()"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
