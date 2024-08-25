@@ -1,4 +1,5 @@
 export interface Suplemento {
+  id: number;
   nome: string;
   quantidade: number;
   imageUri: string;

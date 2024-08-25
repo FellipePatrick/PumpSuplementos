@@ -1,45 +1,31 @@
-
 {
   "Suplementos": [
     {
-      "nome": "Whey Protein Isolado",
-      "quantidade": 15,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/whey-2695705_960_720.jpg",
-      "preco": 159.99,
-      "descricao": "Whey Protein Isolado de alta qualidade, ideal para recuperação muscular e ganho de massa magra.",
-      "categoria": "Proteínas"
+      "id": "",
+      "nome": "a",
+      "quantidade": "a",
+      "imageUri": "a",
+      "preco": "a",
+      "descricao": "a",
+      "categoria": "a"
     },
     {
-      "nome": "Creatina Monohidratada",
-      "quantidade": 25,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/creatine-2695706_960_720.jpg",
-      "preco": 89.99,
-      "descricao": "Creatina Monohidratada para aumento de força e desempenho em atividades físicas intensas.",
-      "categoria": "Pré-Treino"
+      "id": "",
+      "nome": "a",
+      "quantidade": "a",
+      "imageUri": "a",
+      "preco": "a",
+      "descricao": "a",
+      "categoria": "a"
     },
     {
-      "nome": "BCAA 2:1:1",
-      "quantidade": 30,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/bcaa-2695707_960_720.jpg",
-      "preco": 129.99,
-      "descricao": "Suplemento BCAA na proporção 2:1:1, ajuda na recuperação e redução da fadiga muscular.",
-      "categoria": "Aminoácidos"
-    },
-    {
-      "nome": "Multivitamínico",
-      "quantidade": 60,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/multivitamin-2695708_960_720.jpg",
-      "preco": 74.99,
-      "descricao": "Multivitamínico completo para garantir a ingestão diária de vitaminas e minerais essenciais.",
-      "categoria": "Vitaminas e Minerais"
-    },
-    {
-      "nome": "Óleo de Peixe",
-      "quantidade": 40,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/fish-oil-2695709_960_720.jpg",
-      "preco": 59.99,
-      "descricao": "Óleo de peixe rico em ácidos graxos ômega-3, benéfico para a saúde cardiovascular e função cerebral.",
-      "categoria": "Ômega-3"
+      "id": "",
+      "nome": "a",
+      "quantidade": "a",
+      "imageUri": "a",
+      "preco": "a",
+      "descricao": "a",
+      "categoria": "a"
     }
   ]
 }
