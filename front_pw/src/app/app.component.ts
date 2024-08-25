@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import { MatToolbarModule } from
-'@angular/material/toolbar';
-import { ListarSuplementosComponent } from "./Suplementos/listar-suplementos/listar-suplementos.component";
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ListarSuplementosComponent } from './Suplementos/listar-suplementos/listar-suplementos.component';
 import { FormSuplementoComponent } from './Suplementos/form-suplemento/form-suplemento.component';
 
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { NgModel } from '@angular/forms';
-
-
-
+import { FooterComponent } from './Suplementos/footer/footer.component';
+import { HeaderComponent } from './Suplementos/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +23,9 @@ import { NgModel } from '@angular/forms';
     ListarSuplementosComponent,
     FormSuplementoComponent,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    FooterComponent,
+    HeaderComponent,
   ],
 
   templateUrl: './app.component.html',
