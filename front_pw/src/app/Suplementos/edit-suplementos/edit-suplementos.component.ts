@@ -67,7 +67,7 @@ export class EditSuplementosComponent {
     this.service.putSuplemento(this.form.value)
     .subscribe({
     next: (v) => this.onSucess(),
-    error: (e) => this.snackBar.open(e, "", {duration:1000 }),
+    //error: (e) => this.snackBar.open(e, "", {duration:1000 }),
     complete: () => console.info('complete')
     })
   }
