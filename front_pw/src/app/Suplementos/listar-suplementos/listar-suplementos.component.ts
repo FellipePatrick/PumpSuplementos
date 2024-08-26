@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common'; // Importe Location
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-listar-suplementos',
@@ -21,6 +23,8 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     MatIconModule,
     CommonModule,
+    FooterComponent,
+    HeaderComponent,
   ],
   templateUrl: './listar-suplementos.component.html',
   styleUrl: './listar-suplementos.component.scss',
