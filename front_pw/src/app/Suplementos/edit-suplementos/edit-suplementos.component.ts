@@ -7,11 +7,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Suplemento } from '../model/suplemento';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-edit-suplementos',
   standalone: true,
-  imports: [MatInputModule, ReactiveFormsModule, MatFormFieldModule],
+  imports: [MatInputModule, ReactiveFormsModule, MatFormFieldModule, FooterComponent],
   templateUrl: './edit-suplementos.component.html',
   styleUrl: './edit-suplementos.component.scss'
 })

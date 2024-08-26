@@ -12,8 +12,12 @@ export const routes: Routes = [
   {path: "login", component: LoginComponent},
 
   {path: "suplementos", component: PrincipalCompentComponent, canActivate: [authGuard],children: [
+    { path: 'suplementos', redirectTo: 'listar', pathMatch: 'full' },
     {path: 'listar',component: ListarSuplementosComponent},
     {path: 'criar',component: FormSuplementoComponent},
     {path: 'editar/:id',component: EditSuplementosComponent},
-  ]}
+  ]},
+
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }, // Redireciona para o login
+
 ];
