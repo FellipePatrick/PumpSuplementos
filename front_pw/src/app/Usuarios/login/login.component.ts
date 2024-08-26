@@ -36,13 +36,12 @@ export class LoginComponent {
     this.usuarioService.login(this.form.value.email, this.form.value.password)
     .subscribe({
       next: (v) => this.onSucess(),
-      error: (e) => this.snackBar.open(e, "", {duration:1000 }),
+      error: (e) => this.snackBar.open("Erro na autenticação", "", {duration:3000 }),
       complete: () => console.info('complete')
     })
   }
 
   onSucess(){
-    alert('Salvo com sucesso!');
     this.snackBar.open("Salvo!", "", {duration:1000 })
     this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
       this.router.navigate(['/suplementos']);

@@ -28,15 +28,6 @@
       "categoria": "Energéticos"
     },
     {
-      "id": "11",
-      "nome": "ZMA",
-      "quantidade": 30,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/zma-2695715_960_720.jpg",
-      "preco": 79.99,
-      "descricao": "ZMA (Zinco, Magnésio e Vitamina B6) para aumento da produção de testosterona e recuperação muscular.",
-      "categoria": "Recuperação"
-    },
-    {
       "id": "",
       "nome": "a",
       "quantidade": "a",
