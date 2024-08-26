@@ -15,6 +15,6 @@ import { FooterComponent } from '../../../Suplementos/footer/footer.component';
     FooterComponent,
   ],
   templateUrl: './principal-compent.component.html',
-  styleUrl: './principal-compent.component.scss',
+  styleUrls: ['./principal-compent.component.scss'],
 })
 export class PrincipalCompentComponent {}
