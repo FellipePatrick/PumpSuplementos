@@ -1,32 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, Observable, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { Usuario } from '../model/usuario';
 import { send } from 'process';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioServiceService {
-  private url = 'https://reqres.in/api/login';
+  private url = "http://localhost:8080/token/";
   constructor(private httpClient: HttpClient) {
   }
 
-  login(email: string, password: string): Observable<any> {
+  login(email: string, password: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = { email, password };
-
-    return this.httpClient.post<any>(this.url, body, { headers }).pipe(
+    console.log('Iniciando requisição de login'); // Log para verificar início da requisição
+    return this.httpClient.post(this.url, body, { headers, responseType: 'text' }).pipe(
       map(response => {
-        if (response.token) {
-          this.setToken(response.token);
-          alert('Usuário logado com sucesso');
-        } else {
-          alert('Usuário ou senha inválidos');
+        console.log('Resposta recebida:', response); // Log para verificar a resposta
+        if (response) {
+          this.setToken(response);
         }
+        return response;
       }),
+      catchError((error: HttpErrorResponse) => {
+        return throwError(error);
+      })
     );
   }
-
 
   logout() {
     localStorage.removeItem('token');

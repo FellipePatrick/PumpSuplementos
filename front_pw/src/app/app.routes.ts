@@ -7,7 +7,9 @@ import { PrincipalCompentComponent } from './shared/components/principal-compent
 import { CanActivate } from '@angular/router';
 import { authGuard } from './Usuarios/auth.guard';
 export const routes: Routes = [
-
+  //{ path: 'suplementos', redirectTo: 'listar', pathMatch: 'full' },
+   // {path: 'listar',component: ListarSuplementosComponent},
+   // {path: 'criar',component: FormSuplementoComponent},
   {path: "", redirectTo: "login", pathMatch: 'full'},
   {path: "login", component: LoginComponent},
 

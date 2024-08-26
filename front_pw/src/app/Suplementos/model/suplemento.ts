@@ -6,4 +6,5 @@ export interface Suplemento {
   preco: number;
   descricao: string;
   categoria: string;
+  token: string;
 }
