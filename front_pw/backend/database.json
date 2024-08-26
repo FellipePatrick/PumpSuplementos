@@ -19,15 +19,6 @@
       "categoria": "Colágeno"
     },
     {
-      "id": "10",
-      "nome": "Cafeína",
-      "quantidade": 40,
-      "imageUri": "https://cdn.pixabay.com/photo/2017/08/30/07/41/caffeine-2695714_960_720.jpg",
-      "preco": 49.99,
-      "descricao": "Cafeína pura em cápsulas para aumento de energia, foco e desempenho nos treinos.",
-      "categoria": "Energéticos"
-    },
-    {
       "id": "",
       "nome": "a",
       "quantidade": "a",
