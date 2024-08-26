@@ -75,7 +75,7 @@ export class EditSuplementosComponent {
     alert('Salvo com sucesso!');
     this.snackBar.open("Salvo!", "", {duration:1000 })
     this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/suplementos']);
     });
   }
   onCancel(){
