@@ -1,0 +1,77 @@
+[
+    {
+      "nome": "Ana Costa",
+      "email": "ana.costa@exemplo.com",
+      "isAdmin": true,
+      "password": "adminSenha2024",
+      "endereco": {
+        "logradouro": "Avenida Central",
+        "bairro": "Centro",
+        "cidade": "Rio de Janeiro",
+        "pais": "Brasil",
+        "estado": "RJ",
+        "numero": "456",
+        "complemento": "Sala 301"
+      }
+    },
+    {
+      "nome": "Carlos Almeida",
+      "email": "carlos.almeida@exemplo.com",
+      "isAdmin": false,
+      "password": "senhaCarlos789",
+      "endereco": {
+        "logradouro": "Rua das Laranjeiras",
+        "bairro": "Laranjeiras",
+        "cidade": "Belo Horizonte",
+        "pais": "Brasil",
+        "estado": "MG",
+        "numero": "789",
+        "complemento": "Casa 12"
+      }
+    },
+    {
+      "nome": "Beatriz Oliveira",
+      "email": "beatriz.oliveira@exemplo.com",
+      "isAdmin": false,
+      "password": "beatriz2024",
+      "endereco": {
+        "logradouro": "Rua das Acácias",
+        "bairro": "Jardim das Acácias",
+        "cidade": "Curitiba",
+        "pais": "Brasil",
+        "estado": "PR",
+        "numero": "1010",
+        "complemento": "Bloco B, Apto 304"
+      }
+    },
+    {
+      "nome": "Lucas Pereira",
+      "email": "lucas.pereira@exemplo.com",
+      "isAdmin": false,
+      "password": "lucas1234",
+      "endereco": {
+        "logradouro": "Rua das Palmeiras",
+        "bairro": "Palmeiras",
+        "cidade": "Fortaleza",
+        "pais": "Brasil",
+        "estado": "CE",
+        "numero": "202",
+        "complemento": "Cobertura 8"
+      }
+    },
+    {
+      "nome": "Marie Dubois",
+      "email": "marie.dubois@exemple.fr",
+      "isAdmin": false,
+      "password": "marie2024",
+      "endereco": {
+        "logradouro": "Boulevard Saint-Germain",
+        "bairro": "Quartier Latin",
+        "cidade": "Paris",
+        "pais": "França",
+        "estado": "Île-de-France",
+        "numero": "15",
+        "complemento": "Appartement 7B"
+      }
+    }
+  ]

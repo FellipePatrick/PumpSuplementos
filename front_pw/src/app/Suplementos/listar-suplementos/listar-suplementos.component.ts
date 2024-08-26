@@ -49,7 +49,7 @@ export class ListarSuplementosComponent {
     private activatedRoute: ActivatedRoute,
     private location: Location
   ) {
-    produtosService.list().subscribe((p) => (this.produtos_array = p));
+    produtosService.getSuplementos().subscribe((p) => (this.produtos_array = p));
     this.suplemento$ = produtosService
       .list()
       .pipe(

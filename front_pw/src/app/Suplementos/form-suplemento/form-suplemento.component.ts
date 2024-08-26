@@ -46,6 +46,7 @@ export class FormSuplementoComponent {
       preco: [''],
       descricao: [''],
       categoria: [''],
+      token: ['eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiam9hb0BnbWFpbC5jb20iLCJleHAiOjE3MjQ3MDQxNDQsImlhdCI6MTcyNDcwMDU0NCwic2NvcGUiOiJST0xFX0FETUlOIn0.Aji0W-ubGOzCn8-v0V7l2yr72iVUhGVkVeW6vjTL5s6i9cdDneUoTXWiqe9OwjC944KoqbG3PSdYAxrT_mh7s4FgeXzK1NpOT71fYgVWXVcBDM72pvx5GRXGXqcmw9WoklkJ5MEdOP1V97lcdQg4suBrMxmtL5lQqdVo05NBSVkxncHlRMT6sU1fhH1cbFVFNEEVOZ7LtAodGUEFFELlUN6XRA_KvCsg1UO7gYNAlc8TSWCt2KHV2ScVMaBgQf4Ebx_XcOLgtbYVwx6otiBjCHTSPiID00_MaU6cdOGF5NXRFLMz45ud-7Jh8WX-Pzw1bVs9hcNLrhl7XKsCsGhOKg'],
     });
   }
 

@@ -42,6 +42,7 @@ export class LoginComponent {
   }
 
   onSucess(){
+
     this.snackBar.open("Salvo!", "", {duration:1000 })
     this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
       this.router.navigate(['/suplementos']);

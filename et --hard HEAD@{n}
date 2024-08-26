@@ -1,0 +1,22 @@
+[33me5ce9fe[m[33m ([m[1;36mHEAD -> [m[1;32mFront-End[m[33m, [m[1;31morigin/Front-End[m[33m)[m HEAD@{0}: pull: Fast-forward
+[33m31b37a1[m HEAD@{1}: commit: ajeitando footer
+[33mc362802[m HEAD@{2}: pull: Fast-forward
+[33m2caa141[m HEAD@{3}: commit: seguranca nas rotas
+[33md194566[m HEAD@{4}: commit: corrigindo erro no listar produto
+[33m73a2897[m HEAD@{5}: commit: ajustando rotas
+[33ma835c31[m HEAD@{6}: commit: adicionando interceptor
+[33m1ccf77a[m HEAD@{7}: commit: fazendo login
+[33m4be177b[m HEAD@{8}: commit: corrigindo conflitos
+[33m08d681b[m HEAD@{9}: commit (merge): Resolvendo conflitos e concluindo merge
+[33ma7733b4[m HEAD@{10}: pull: Merge made by the 'ort' strategy.
+[33m546f1b1[m HEAD@{11}: commit (merge): Concluindo merge após resolver conflitos
+[33m1548fb5[m HEAD@{12}: commit: Salvando alterações locais antes do merge
+[33mef3f00f[m HEAD@{13}: commit: editando produto e adicionando bootstrap
+[33mdaca383[m HEAD@{14}: commit: adicionando e removendo suplementos
+[33md423683[m HEAD@{15}: commit: usando rotas
+[33m7c17121[m HEAD@{16}: commit: adicionando botao na lista de suplementps
+[33m6b80e6e[m HEAD@{17}: commit: inserindo captura de erros na listagem de suplementos
+[33m32c40da[m HEAD@{18}: commit: implementando get de suplementos
+[33m72d18d6[m HEAD@{19}: commit: primeiro código front
+[33m06f1914[m HEAD@{20}: checkout: moving from main to Front-End
+[33md34bad9[m[33m ([m[1;32mmain[m[33m)[m HEAD@{21}: clone: from https://github.com/FellipePatrick/PumpSuplementos.git
