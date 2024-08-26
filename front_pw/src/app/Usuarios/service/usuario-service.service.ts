@@ -21,15 +21,10 @@ export class UsuarioServiceService {
         console.log('Resposta recebida:', response); // Log para verificar a resposta
         if (response) {
           this.setToken(response);
-          alert('Usuário logado com sucesso');
-        } else {
-          alert('Usuário ou senha inválidos');
         }
         return response;
       }),
       catchError((error: HttpErrorResponse) => {
-        console.error('Erro na requisição:', error); // Log para verificar erros
-        alert('Erro na requisição: ' + error.message);
         return throwError(error);
       })
     );
