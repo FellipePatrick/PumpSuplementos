@@ -8,38 +8,44 @@ import { Suplemento } from '../model/suplemento';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FooterComponent } from '../footer/footer.component';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-edit-suplementos',
   standalone: true,
-  imports: [MatInputModule, ReactiveFormsModule, MatFormFieldModule, FooterComponent],
+  imports: [
+    MatInputModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    FooterComponent,
+  ],
   templateUrl: './edit-suplementos.component.html',
-  styleUrl: './edit-suplementos.component.scss'
+  styleUrl: './edit-suplementos.component.scss',
 })
 export class EditSuplementosComponent {
   // suplemento$: Observable<Suplemento[]>;
-  form:FormGroup;
+  form: FormGroup;
   //suplemento$: Observable<Suplemento[]>;
 
   id: string | null = null;
   suplemento: Suplemento | undefined;
 
   constructor(
-    private formBuilder:FormBuilder,
-    private service:SuplementosServiceService,
-    private snackBar:MatSnackBar,
-    private location:Location,
+    private formBuilder: FormBuilder,
+    private service: SuplementosServiceService,
+    private snackBar: MatSnackBar,
+    private location: Location,
     private router: Router,
     private route: ActivatedRoute // Add this line
-  ){
+  ) {
     this.form = this.formBuilder.group({
-      id : [''],
+      id: [''],
       nome: [''],
       quantidade: [''],
       imageUri: [''],
       preco: [''],
       descricao: [''],
       categoria: [''],
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -58,27 +64,41 @@ export class EditSuplementosComponent {
         imageUri: this.suplemento.imageUri,
         preco: this.suplemento.preco,
         descricao: this.suplemento.descricao,
-        categoria: this.suplemento.categoria
+        categoria: this.suplemento.categoria,
       });
     });
   }
 
-  onSubmit(){
-    this.service.putSuplemento(this.form.value)
-    .subscribe({
-    next: (v) => this.onSucess(),
-    //error: (e) => this.snackBar.open(e, "", {duration:1000 }),
-    complete: () => console.info('complete')
-    })
-  }
-  onSucess(){
-    alert('Salvo com sucesso!');
-    this.snackBar.open("Salvo!", "", {duration:1000 })
-    this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/suplementos']);
+  onSubmit() {
+    this.service.putSuplemento(this.form.value).subscribe({
+      next: (v) => this.onSucess('Salvo com sucesso!'),
+      error: (e) => this.onErro('Erro ao salvar, verifique os campos!'),
+      complete: () => console.info('complete'),
     });
   }
-  onCancel(){
+  onSucess(message: string) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso',
+      text: message,
+      showConfirmButton: false,
+      timer: 1500,
+      didClose: () => {
+        this.router.navigate(['/suplementos']);
+      },
+    });
+  }
+
+  onErro(errorMessage: string) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro',
+      text: errorMessage,
+      confirmButtonText: 'Fechar',
+      allowOutsideClick: false,
+    });
+  }
+  onCancel() {
     this.location.back();
   }
 }

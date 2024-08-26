@@ -1,0 +1,38 @@
+.container {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.card {
+  border: none;
+}
+
+.form-title {
+  font-size: 2rem;
+  color: #333;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.custom-btn {
+  background-color: #6a11cb;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.custom-btn:hover {
+  background-color: #2575fc;
+  transform: scale(1.05);
+}
+
+.custom-btn:active {
+  background-color: #1a5bb8;
+  transform: scale(0.95);
+}
