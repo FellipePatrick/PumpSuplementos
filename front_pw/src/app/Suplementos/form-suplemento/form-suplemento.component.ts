@@ -12,7 +12,7 @@ import { Location } from '@angular/common'; // Importe Location
 import { Router } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-form-suplemento',
   standalone: true,
@@ -51,16 +51,31 @@ export class FormSuplementoComponent {
 
   onSubmit() {
     this.service.postSuplemento(this.form.value).subscribe({
-      next: (v) => this.onSucess(),
+      next: (v) => this.onSucess('Salvo com sucesso!'),
       error: (e) => this.snackBar.open(e, '', { duration: 1000 }),
       complete: () => console.info('complete'),
     });
   }
-  onSucess() {
-    alert('Salvo com sucesso!');
-    this.snackBar.open('Salvo!', '', { duration: 1000 });
-    this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/suplementos']);
+  onSucess(message: string) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso',
+      text: message,
+      showConfirmButton: false,
+      timer: 1500,
+      didClose: () => {
+        this.router.navigate(['/suplementos']);
+      },
+    });
+  }
+
+  onErro(errorMessage: string) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro',
+      text: errorMessage,
+      confirmButtonText: 'Fechar',
+      allowOutsideClick: false,
     });
   }
   onCancel() {

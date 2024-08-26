@@ -12,7 +12,7 @@ import { Location } from '@angular/common'; // Importe Location
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-listar-suplementos',
   standalone: true,
@@ -50,16 +50,12 @@ export class ListarSuplementosComponent {
     private location: Location
   ) {
     produtosService.list().subscribe((p) => (this.produtos_array = p));
-    this.suplemento$ = produtosService
-      .list()
-      .pipe(
-        catchError((error) => {
-          this.snackBar.open('Erro ao carregar a lista de produtos', 'Fechar', {
-            duration: 1000,
-          });
-          throw error;
-        })
-      );
+    this.suplemento$ = produtosService.list().pipe(
+      catchError((error) => {
+        this.onErro('Erro ao carregar a lista de produtos');
+        throw error;
+      })
+    );
   }
 
   editar(id: number) {
@@ -72,22 +68,31 @@ export class ListarSuplementosComponent {
   deletar(id: number) {
     this.produtosService.deleteSuplemento(id).subscribe({
       next: (v) => this.onSucess('Produto deletado com sucesso!'),
-      error: (e) => this.onErro(e, 'Fechar'),
+      error: (e) => this.onErro('Fechar'),
       complete: () => console.info('complete'),
     });
   }
 
-  onSucess(string: string) {
-    alert('Deletado com sucesso!');
-    this.snackBar.open(string, '', { duration: 1000 });
-    this.router.navigate(['/'], { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/suplementos']);
+  onSucess(message: string) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso',
+      text: message,
+      showConfirmButton: false,
+      timer: 1500,
+      // didClose: () => {
+      //   this.router.navigate(['/suplementos']);
+      // },
     });
   }
 
-  onErro(errorMensage: string, action: string) {
-    this.snackBar.open(errorMensage, action, {
-      duration: 1000,
+  onErro(errorMessage: string) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro',
+      text: errorMessage,
+      confirmButtonText: 'Fechar',
+      allowOutsideClick: false,
     });
   }
 }
