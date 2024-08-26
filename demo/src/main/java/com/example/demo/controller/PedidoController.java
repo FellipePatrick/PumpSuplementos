@@ -2,6 +2,7 @@ package com.example.demo.controller;
 import java.net.URI;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/pedidos/")
 @AllArgsConstructor
+@CrossOrigin(origins = "${HOST_URL}")
 public class PedidoController {
      private final PedidoService service;
     private final ModelMapper mapper;
