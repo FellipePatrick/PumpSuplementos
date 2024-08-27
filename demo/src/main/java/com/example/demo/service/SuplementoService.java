@@ -10,8 +10,16 @@ import com.example.demo.repository.SuplementoRepository;
 
 @Service
 public class SuplementoService extends GenericService<Suplemento, Long, SuplementoRepository>{
+
+    private SuplementoRepository repository;
     public SuplementoService(SuplementoRepository repository){
         super(repository);
+        this.repository = repository;
+    }
+
+
+    public List<Suplemento> findAllWhereIsDeletedIsNotNull() {
+        return this.repository.findAllWhereIsDeletedIsNotNull();
     }
 
     @Override

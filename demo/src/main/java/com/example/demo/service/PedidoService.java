@@ -57,7 +57,7 @@ public class PedidoService extends GenericService<Pedido, Long, PedidoRepository
                 entity.setTotal(Math.ceil(entity.getTotal() + (suplementoEntity.getPreco() * suplementoRequest.getQuantidade())));
             }
         }
-        System.out.println(entity.getTotal());
+        
         entity.setSuplementos(pedidoSuplementos);
         entity.setId(id);
         return this.update(entity, id);
