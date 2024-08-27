@@ -11,10 +11,9 @@ export class SuplementosServiceService {
   private API_URL = environment.api + '/suplementos/';
   constructor(private httpClient:HttpClient) { }
 
-  list(page: number, size: number): Observable<any> {
-    return this.httpClient.get<any>(`${this.API_URL}?page=${page}&size=${size}`);
+  list(page: number, size: number): Observable<{ content: Suplemento[], totalElements: number }> {
+    return this.httpClient.get<{ content: Suplemento[], totalElements: number }>(`${this.API_URL}?page=${page}&size=${size}`);
   }
-
   public deleteSuplemento(id:number){
     return this.httpClient.delete(`${this.API_URL}${3}`);
   }

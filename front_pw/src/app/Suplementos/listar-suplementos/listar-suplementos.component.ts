@@ -1,34 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { Suplemento } from '../model/suplemento';
 import { SuplementosServiceService } from '../service/suplementos-service.service';
-import { MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { catchError, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-listar-suplementos',
   standalone: true,
-  imports: [CommonModule, MatSnackBarModule, MatTableModule, MatIconModule, MatPaginatorModule],
+  imports: [
+    CommonModule,
+    MatSnackBarModule,
+    RouterModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule
+  ],
   templateUrl: './listar-suplementos.component.html',
   styleUrls: ['./listar-suplementos.component.scss'],
 })
 export class ListarSuplementosComponent implements OnInit {
-  suplemento$: Observable<Suplemento[]> = new Observable<Suplemento[]>();
-  produtos_array: Suplemento[] = [];
-  displayedColumns = [
-    'nome',
-    'quantidade',
-    'preco',
-    'descricao',
-    'categoria',
-    'acao',
-  ];
+  suplemento$: Observable<{ content: Suplemento[], totalElements: number }> = new Observable<{ content: Suplemento[], totalElements: number }>();
+  dataSource = new MatTableDataSource<Suplemento>();
+  displayedColumns = ['nome', 'quantidade', 'preco', 'descricao', 'categoria', 'acao'];
   totalElements: number = 0;
   pageSize: number = 10;
   currentPage: number = 0;
@@ -37,8 +38,7 @@ export class ListarSuplementosComponent implements OnInit {
     private produtosService: SuplementosServiceService,
     public snackBar: MatSnackBar,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private location: Location
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -46,13 +46,21 @@ export class ListarSuplementosComponent implements OnInit {
   }
 
   loadSuplementos(page: number, size: number): void {
-    console.log(`Carregando suplementos - Página: ${page}, Tamanho: ${size}`);
-    this.produtosService.list(page, size).subscribe({
+    this.suplemento$ = this.produtosService.list(page, size).pipe(
+      map(response => ({
+        content: response.content,
+        totalElements: response.totalElements
+      })),
+      catchError((error) => {
+        this.onErro('Erro ao carregar a lista de produtos');
+        throw error;
+      })
+    );
+
+    this.suplemento$.subscribe({
       next: (response) => {
-        console.log('Resposta recebida do backend:', response);
-        this.produtos_array = response.content;
+        this.dataSource.data = response.content;
         this.totalElements = response.totalElements;
-        console.log('Suplementos carregados:', this.produtos_array);
       },
       error: (error) => {
         this.snackBar.open('Erro ao carregar a lista de produtos', 'Fechar', {
@@ -87,6 +95,16 @@ export class ListarSuplementosComponent implements OnInit {
         });
         console.error('Erro ao deletar suplemento:', error);
       }
+    });
+  }
+
+  mostrarProdutos(produtos: Suplemento[]): void {
+    // Implementação da função mostrarProdutos
+  }
+
+  onErro(mensagem: string): void {
+    this.snackBar.open(mensagem, 'Fechar', {
+      duration: 1000,
     });
   }
 }
