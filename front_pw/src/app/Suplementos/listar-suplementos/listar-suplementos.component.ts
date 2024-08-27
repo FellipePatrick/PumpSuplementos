@@ -1,98 +1,92 @@
-import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
-import { Suplemento } from '../model/suplemento';
-import { Observable, delay, catchError } from 'rxjs';
-import { SuplementosServiceService } from '../service/suplementos-service.service';
-import { AsyncPipe } from '@angular/common';
-import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common'; // Importe Location
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
-import Swal from 'sweetalert2';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Suplemento } from '../model/suplemento';
+import { SuplementosServiceService } from '../service/suplementos-service.service';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+
 @Component({
   selector: 'app-listar-suplementos',
   standalone: true,
-  imports: [
-    MatTableModule,
-    AsyncPipe,
-    MatSnackBarModule,
-    MatButtonModule,
-    MatIconModule,
-    CommonModule,
-    FooterComponent,
-    HeaderComponent,
-  ],
+  imports: [CommonModule, MatSnackBarModule, MatTableModule, MatIconModule, MatPaginatorModule],
   templateUrl: './listar-suplementos.component.html',
-  styleUrl: './listar-suplementos.component.scss',
+  styleUrls: ['./listar-suplementos.component.scss'],
 })
-export class ListarSuplementosComponent {
-  suplemento$: Observable<Suplemento[]>;
-  //suplemento: Suplemento = new Suplemento();
+export class ListarSuplementosComponent implements OnInit {
+  suplemento$: Observable<Suplemento[]> = new Observable<Suplemento[]>();
   produtos_array: Suplemento[] = [];
   displayedColumns = [
     'nome',
     'quantidade',
-    'imageUri',
     'preco',
     'descricao',
     'categoria',
     'acao',
   ];
+  totalElements: number = 0;
+  pageSize: number = 10;
+  currentPage: number = 0;
+
   constructor(
     private produtosService: SuplementosServiceService,
     public snackBar: MatSnackBar,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private location: Location
-  ) {
-    produtosService.list().subscribe((p) => (this.produtos_array = p));
-    this.suplemento$ = produtosService.list().pipe(
-      catchError((error) => {
-        this.onErro('Erro ao carregar a lista de produtos');
-        throw error;
-      })
-    );
+  ) {}
+
+  ngOnInit(): void {
+    this.loadSuplementos(this.currentPage, this.pageSize);
   }
 
-  editar(id: number) {
-    alert('Editar');
-    this.router.navigate(['suplementos/editar/', id], {
-      relativeTo: this.router.routerState.root,
+  loadSuplementos(page: number, size: number): void {
+    console.log(`Carregando suplementos - Página: ${page}, Tamanho: ${size}`);
+    this.produtosService.list(page, size).subscribe({
+      next: (response) => {
+        console.log('Resposta recebida do backend:', response);
+        this.produtos_array = response.content;
+        this.totalElements = response.totalElements;
+        console.log('Suplementos carregados:', this.produtos_array);
+      },
+      error: (error) => {
+        this.snackBar.open('Erro ao carregar a lista de produtos', 'Fechar', {
+          duration: 1000,
+        });
+        console.error('Erro ao carregar suplementos:', error);
+      }
     });
   }
 
-  deletar(id: number) {
+  onPageChange(event: PageEvent): void {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.loadSuplementos(this.currentPage, this.pageSize);
+  }
+
+  editar(id: number): void {
+    this.router.navigate(['editar', id], { relativeTo: this.activatedRoute });
+  }
+
+  deletar(id: number): void {
     this.produtosService.deleteSuplemento(id).subscribe({
-      next: (v) => this.onSucess('Produto deletado com sucesso!'),
-      error: (e) => this.onErro('Fechar'),
-      complete: () => console.info('complete'),
-    });
-  }
-
-  onSucess(message: string) {
-    Swal.fire({
-      icon: 'success',
-      title: 'Sucesso',
-      text: message,
-      showConfirmButton: false,
-      timer: 1500,
-      // didClose: () => {
-      //   this.router.navigate(['/suplementos']);
-      // },
-    });
-  }
-
-  onErro(errorMessage: string) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Erro',
-      text: errorMessage,
-      confirmButtonText: 'Fechar',
-      allowOutsideClick: false,
+      next: () => {
+        this.snackBar.open('Suplemento deletado com sucesso', 'Fechar', {
+          duration: 1000,
+        });
+        this.loadSuplementos(this.currentPage, this.pageSize);
+      },
+      error: (error) => {
+        this.snackBar.open('Erro ao deletar suplemento', 'Fechar', {
+          duration: 1000,
+        });
+        console.error('Erro ao deletar suplemento:', error);
+      }
     });
   }
 }
