@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class UsuarioResponseDTO extends RepresentationModel<UsuarioResponseDTO>{
+    private Long id;
     private String nome;
     private String email;
     private String password;

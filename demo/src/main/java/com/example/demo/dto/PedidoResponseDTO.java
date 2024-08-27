@@ -22,6 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PedidoResponseDTO extends RepresentationModel<PedidoResponseDTO>{
+    private Long id;
     private UsuarioRequestDTO cliente;
     private double total;
     private LocalDateTime createdAt;
