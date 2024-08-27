@@ -26,7 +26,7 @@ public class Suplemento extends AbstractEntity{
     private String nome;
     @Min(value = 0, message = "Ao menos um item precisa ser cadastrado")
     private int quantidade;
-    @NotBlank (message = "A imagem não pode estar em branco.")
+   // @NotBlank (message = "A imagem não pode estar em branco.")
     private String imageUri;
     @NotNull(message = "O preço não pode ser nulo.")
     @DecimalMin(value = "0.1", inclusive = true, message = "O preço deve ser pelo menos 0.1.")
