@@ -31,11 +31,10 @@ export class EditSuplementosComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private service: SuplementosServiceService,
-    private snackBar: MatSnackBar,
     private location: Location,
     private router: Router,
-    private route: ActivatedRoute // Add this line
+    private route: ActivatedRoute,
+    private service: SuplementosServiceService
   ) {
     this.form = this.formBuilder.group({
       id: [''],
@@ -55,9 +54,11 @@ export class EditSuplementosComponent {
     // Faça a chamada ao serviço para buscar os dados do suplemento
     this.service.getSuplementoById(id).subscribe((suplemento: Suplemento) => {
       this.suplemento = suplemento;
+      alert('Suplemento: ' + this.suplemento.nome);
 
-      // Inicialize o formulário com os dados do suplemento
-      this.form = this.formBuilder.group({
+
+      // Atualize o formulário com os dados do suplemento
+      this.form.patchValue({
         id: this.suplemento.id,
         nome: this.suplemento.nome,
         quantidade: this.suplemento.quantidade,
@@ -68,7 +69,6 @@ export class EditSuplementosComponent {
       });
     });
   }
-
   onSubmit() {
     this.service.putSuplemento(this.form.value).subscribe({
       next: (v) => this.onSucess('Salvo com sucesso!'),
@@ -84,7 +84,7 @@ export class EditSuplementosComponent {
       showConfirmButton: false,
       timer: 1500,
       didClose: () => {
-        this.router.navigate(['/suplementos']);
+        this.router.navigate(['suplementos']);
       },
     });
   }

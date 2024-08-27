@@ -15,7 +15,7 @@ export class SuplementosServiceService {
     return this.httpClient.get<{ content: Suplemento[], totalElements: number }>(`${this.API_URL}?page=${page}&size=${size}`);
   }
   public deleteSuplemento(id:number){
-    return this.httpClient.delete(`${this.API_URL}${3}`);
+    return this.httpClient.delete(`${this.API_URL}${id}`);
   }
 
 
@@ -24,7 +24,7 @@ export class SuplementosServiceService {
   }
 
   public getSuplementoById(id:number){
-    return this.httpClient.get<Suplemento>(`${this.API_URL}/${id}`);
+    return this.httpClient.get<Suplemento>(`${this.API_URL}${id}`);
   }
 
   public postSuplemento(suplemento:Suplemento){
@@ -32,7 +32,7 @@ export class SuplementosServiceService {
   }
 
   public putSuplemento(suplemento:Suplemento){
-     return this.httpClient.put(`${this.API_URL}/${suplemento.id}`, suplemento);
+     return this.httpClient.put(`${this.API_URL}${suplemento.id}`, suplemento);
   }
 
   // Tratador de erros genérico
