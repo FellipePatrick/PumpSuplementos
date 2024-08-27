@@ -15,6 +15,12 @@ public class SuplementoService extends GenericService<Suplemento, Long, Suplemen
     }
 
     @Override
+    public Suplemento update(Suplemento entity, Long id) {
+        entity.setId(id);
+        return super.update(entity, id);
+    }
+
+    @Override
     public List<Suplemento> findAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
