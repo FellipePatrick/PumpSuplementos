@@ -29,6 +29,7 @@ public class Usuario extends AbstractEntity implements UserDetails {
     private String nome;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true) 
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
     
     private Boolean isAdmin;

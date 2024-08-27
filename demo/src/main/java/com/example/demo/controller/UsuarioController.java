@@ -32,7 +32,8 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/usuarios/")
 @AllArgsConstructor
-@CrossOrigin(origins = "${HOST_URL}")
+// @CrossOrigin(origins = "${HOST_URL}")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioController {
     private final UsuarioService service;
     private final ModelMapper mapper;

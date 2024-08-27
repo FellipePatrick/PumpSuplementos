@@ -12,9 +12,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@CrossOrigin(origins = "${HOST_URL}")
+// @CrossOrigin(origins = "${HOST_URL}")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/enderecos")
+@RequestMapping("/enderecos/")
 @AllArgsConstructor
 public class EnderecoController {
 

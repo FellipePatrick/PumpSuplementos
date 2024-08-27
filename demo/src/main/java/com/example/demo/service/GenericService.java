@@ -22,11 +22,11 @@ public abstract class GenericService<T, ID, REPO extends JpaRepository<T, ID>> i
     public void deleteById(ID id) {
         Optional<T> entity = repository.findById(id);
 
-        if (entity.isPresent()) {
-            this.repository.delete(entity.get());
+        if (!entity.isPresent()) {
+            throw new EntityNotFoundException("Objeto de id " + id + "not found");
         }
         
-        throw new EntityNotFoundException("Objeto de id " + id + "not found");
+        this.repository.delete(entity.get());
     }
 
     public Page<T> listAll(Pageable pageable) {

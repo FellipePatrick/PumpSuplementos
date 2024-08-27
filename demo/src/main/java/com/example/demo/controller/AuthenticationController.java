@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/token/")
+// @CrossOrigin(origins = "${HOST_URL}")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticationController {
 

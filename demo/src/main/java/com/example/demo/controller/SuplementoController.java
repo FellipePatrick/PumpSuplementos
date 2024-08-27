@@ -30,7 +30,8 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/suplementos/")
 @AllArgsConstructor
-@CrossOrigin(origins = "${HOST_URL}")
+// @CrossOrigin(origins = "${HOST_URL}")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SuplementoController {
 
     private final FileStorageService fileStorageService;

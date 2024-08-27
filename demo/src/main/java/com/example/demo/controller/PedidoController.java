@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.demo.domain.Pedido;
+import com.example.demo.domain.Suplemento;
 import com.example.demo.dto.PedidoRequestDTO;
 import com.example.demo.dto.PedidoResponseDTO;
+import com.example.demo.dto.SuplementoRequestDTO;
 import com.example.demo.service.PedidoService;
 
 import org.springframework.data.domain.Page;
@@ -28,9 +30,10 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/pedidos/")
 @AllArgsConstructor
-@CrossOrigin(origins = "${HOST_URL}")
+// @CrossOrigin(origins = "${HOST_URL}")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PedidoController {
-     private final PedidoService service;
+   private final PedidoService service;
     private final ModelMapper mapper;
 
     @GetMapping
@@ -41,7 +44,8 @@ public class PedidoController {
 
     @PostMapping
     public ResponseEntity<PedidoResponseDTO> create(@RequestBody PedidoRequestDTO pedido) {
-        Pedido created = service.create(convertToEntity(pedido));
+        Pedido created = service.create(pedido, convertToEntity(pedido));
+
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("{id}")
@@ -55,12 +59,13 @@ public class PedidoController {
     public ResponseEntity<PedidoResponseDTO> listById(@PathVariable("id") Long id) {
         Pedido p = service.findById(id);
         PedidoResponseDTO dto = mapper.map(p, PedidoResponseDTO.class);
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(service.findById(id, dto));
     }
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable("id") Long id) {
+        System.out.println("ID: " + id);
         service.deleteById(id);
     }
 
@@ -72,14 +77,18 @@ public class PedidoController {
         } catch (Exception e) {
             return this.create(requestDto);
         }
-        Pedido PedidoUpdated = service.update(mapper.map(requestDto, Pedido.class), id);
+        
+        Pedido PedidoUpdated = service.update(requestDto, mapper.map(requestDto, Pedido.class), id);
         return ResponseEntity.ok(convertToDto(PedidoUpdated));
     }
 
-
-
     private PedidoResponseDTO convertToDto(Pedido created) {
         PedidoResponseDTO PedidoResponseDTO = mapper.map(created, PedidoResponseDTO.class);
+        
+        for(int i=0; i<created.getSuplementos().size(); i++){
+            Suplemento sup = created.getSuplementos().get(i).getSuplemento();
+            PedidoResponseDTO.getSuplementos().set(i ,convertToDto(sup));
+        }
         PedidoResponseDTO.addLinks(created);
         return PedidoResponseDTO;
     }
@@ -88,4 +97,8 @@ public class PedidoController {
         return entitySuplemento;
     }
 
+    private SuplementoRequestDTO convertToDto(Suplemento created) {
+        SuplementoRequestDTO SuplementoRequestDTO = mapper.map(created, SuplementoRequestDTO.class);
+        return SuplementoRequestDTO;
+    }
 }

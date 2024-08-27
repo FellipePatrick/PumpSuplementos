@@ -6,8 +6,10 @@ import java.util.List;
 import org.hibernate.annotations.*;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
@@ -31,8 +33,10 @@ public class Pedido extends AbstractEntity{
     @NotNull(message = "O total não pode ser nulo.")
     @DecimalMin(value = "0.1", inclusive = true, message = "O total deve ser pelo menos 0.1.")
     private double total;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private Usuario cliente;
 
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<PedidoSuplemento> suplementos;
 }
