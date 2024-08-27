@@ -54,7 +54,6 @@ export class EditSuplementosComponent {
     // Faça a chamada ao serviço para buscar os dados do suplemento
     this.service.getSuplementoById(id).subscribe((suplemento: Suplemento) => {
       this.suplemento = suplemento;
-      alert('Suplemento: ' + this.suplemento.nome);
 
 
       // Atualize o formulário com os dados do suplemento

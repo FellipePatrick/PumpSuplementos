@@ -30,7 +30,7 @@ import Swal from 'sweetalert2';
 export class ListarSuplementosComponent implements OnInit {
   suplemento$: Observable<{ content: Suplemento[], totalElements: number }> = new Observable<{ content: Suplemento[], totalElements: number }>();
   dataSource = new MatTableDataSource<Suplemento>();
-  displayedColumns = ['id', 'nome', 'quantidade', 'preco', 'descricao', 'categoria', 'acao'];
+  displayedColumns = ['nome', 'quantidade', 'preco', 'descricao', 'categoria', 'acao'];
   totalElements: number = 0;
   pageSize: number = 10;
   currentPage: number = 0;
