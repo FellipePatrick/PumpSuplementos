@@ -35,7 +35,7 @@ public class PedidoService extends GenericService<Pedido, Long, PedidoRepository
     
     public Pedido update(PedidoRequestDTO pedidoDTO, Pedido entity, Long id) {
         List<PedidoSuplemento> pedidoSuplementos = new ArrayList<>();
-
+        entity.setTotal(0.0);
         for (int i = 0; i < pedidoDTO.getSuplementos().size(); i++) {
             Suplemento suplementoRequest = pedidoDTO.getSuplementos().get(i);
             Suplemento suplementoEntity = this.suplementoService.findById(suplementoRequest.getId());
@@ -83,6 +83,7 @@ public class PedidoService extends GenericService<Pedido, Long, PedidoRepository
     public Pedido create(PedidoRequestDTO pedidoDTO, Pedido pedidoEntity) {
         List<PedidoSuplemento> pedidoSuplementos = new ArrayList<>();
         Usuario usuario = this.usuarioService.findById(pedidoDTO.getCliente().getId());
+        pedidoEntity.setTotal(0.0);
         for (int i = 0; i < pedidoDTO.getSuplementos().size(); i++) {
             Suplemento suplementoRequest = pedidoDTO.getSuplementos().get(i);
             Suplemento suplementoEntity = this.suplementoService.findById(suplementoRequest.getId());

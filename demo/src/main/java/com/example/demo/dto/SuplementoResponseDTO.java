@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SuplementoResponseDTO extends RepresentationModel<SuplementoResponseDTO>{
+    private Long id;
     private String nome;
     private int quantidade;
     private String imageUri;
