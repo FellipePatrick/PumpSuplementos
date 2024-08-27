@@ -10,11 +10,17 @@ import { SuplementosServiceService } from '../service/suplementos-service.servic
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-listar-suplementos',
   standalone: true,
-  imports: [CommonModule, MatSnackBarModule, MatTableModule, MatIconModule, MatPaginatorModule],
+  imports: [
+    CommonModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatIconModule,
+    MatPaginatorModule,
+  ],
   templateUrl: './listar-suplementos.component.html',
   styleUrls: ['./listar-suplementos.component.scss'],
 })
@@ -55,11 +61,11 @@ export class ListarSuplementosComponent implements OnInit {
         console.log('Suplementos carregados:', this.produtos_array);
       },
       error: (error) => {
-        this.snackBar.open('Erro ao carregar a lista de produtos', 'Fechar', {
-          duration: 1000,
-        });
+        this.onErro(
+          'Erro ao carregar a listagem de  suplementos, tente novamente mais tarde!'
+        );
         console.error('Erro ao carregar suplementos:', error);
-      }
+      },
     });
   }
 
@@ -82,11 +88,18 @@ export class ListarSuplementosComponent implements OnInit {
         this.loadSuplementos(this.currentPage, this.pageSize);
       },
       error: (error) => {
-        this.snackBar.open('Erro ao deletar suplemento', 'Fechar', {
-          duration: 1000,
-        });
+        this.onErro('Erro ao deletar suplemento, tente novamente mais tarde!');
         console.error('Erro ao deletar suplemento:', error);
-      }
+      },
+    });
+  }
+  onErro(errorMessage: string) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro',
+      text: errorMessage,
+      confirmButtonText: 'Fechar',
+      allowOutsideClick: false,
     });
   }
 }
